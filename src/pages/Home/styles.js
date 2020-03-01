@@ -32,6 +32,32 @@ export const CharacterList = styled.ul`
     }
   }
 
+  @media (max-width: 1060px) {
+    grid-template-columns: ${props =>
+      props.loading ? '1fr' : 'repeat(3, 1fr)'};
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+
+    li {
+      width: 100%;
+      padding-top: 20px;
+      position: relative;
+
+      display: flex;
+
+      img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+  }
+
   ${props =>
     props.loading &&
     css`
@@ -67,5 +93,16 @@ export const CharacterData = styled.div`
       min-height: 14px;
       min-width: 14px;
     }
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
+
+  strong {
+    grid-column: 1 / span 2;
   }
 `;
