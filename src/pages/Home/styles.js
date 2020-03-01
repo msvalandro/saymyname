@@ -1,10 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const CharacterList = styled.ul`
   list-style: none;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: ${props => (props.loading ? '1fr' : 'repeat(4, 1fr)')};
   grid-gap: 40px;
   justify-items: center;
 
@@ -21,6 +31,14 @@ export const CharacterList = styled.ul`
       object-fit: cover;
     }
   }
+
+  ${props =>
+    props.loading &&
+    css`
+      svg {
+        animation: ${rotate} 2s linear infinite;
+      }
+    `}
 `;
 
 export const CharacterData = styled.div`

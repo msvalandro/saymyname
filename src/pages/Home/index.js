@@ -7,6 +7,7 @@ import {
   FaHeartbeat,
   FaSkullCrossbones,
   FaQuestion,
+  FaSpinner,
 } from 'react-icons/fa';
 
 import { CharacterList, CharacterData } from './styles';
@@ -55,9 +56,12 @@ function Character({ img, name, nickname, birthday, occupation, status }) {
 
 export default function Home() {
   const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadCharacters() {
+      setLoading(true);
+
       const response = await api.get('/characters', {
         params: {
           category: 'Breaking Bad',
@@ -65,13 +69,15 @@ export default function Home() {
       });
 
       setCharacters(response.data);
+      setLoading(false);
     }
 
     loadCharacters();
   }, []);
 
   return (
-    <CharacterList>
+    <CharacterList loading={loading ? 1 : 0}>
+      {loading ? <FaSpinner color="#fff" size={40} /> : null}
       {characters.map(character => (
         <Character
           key={character.char_id}
