@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Breaking Bad" src=".github/logo.svg" />
+    <img alt="Breaking Bad" src=".github/logo.svg" width="600px" />
     <br>
 </h1>
 
