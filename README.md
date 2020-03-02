@@ -4,7 +4,7 @@
 </h1>
 
 <h4 align="center">
-  App built with ReactJS to list characters from Breaking Bad series.
+  App built with ReactJS to list characters from Breaking Bad series. <a href="https://msvalandro.github.io/saymyname/">(check here)</a>
 </h4>
 
 <p align="center">
